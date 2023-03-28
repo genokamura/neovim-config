@@ -1,5 +1,6 @@
 " General settings
 set number
+set relativenumber
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -35,6 +36,9 @@ call plug#end()
 " Language Server Protocol (LSP) settings
 lua << EOF
 require('lspconfig').tsserver.setup{}
+require('lspconfig').vimls.setup{}
+require('lspconfig').intelephense.setup{}
+require('lspconfig').bashls.setup{}
 EOF
 
 " LSP setting
@@ -86,15 +90,6 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
-
-" Use Nvim Devicons for NERDTree and Lightline
-" let g:lightline.tabline_formatter = 1
-" let g:lightline.formatter.tabline = 'MyFormatter'
-" function! MyFormatter(tab) abort
-"   let l:tab = get(a:tab, 'tab', '')
-"   let l:dev = get(a:tab, 'dev', '')
-"   return l:tab !=# '' && l:dev !=# '' ? l:tab.' '.l:dev : l:tab
-" endfunction
 
 " NERDTree settings
 let g:NERDTreeDirArrowExpandable = '▸'
